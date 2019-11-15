@@ -4,6 +4,10 @@
 #include <string>
 using namespace std;
 
+/* g++ compile command.
+	g++ main.cpp vote.cpp election.cpp -o Alternative_Vote_System
+*/
+
 int main() {
 	election elec;
 	fstream data ("votes.txt");
