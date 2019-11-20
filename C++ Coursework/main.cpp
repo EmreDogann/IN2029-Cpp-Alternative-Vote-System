@@ -4,10 +4,6 @@
 #include <string>
 using namespace std;
 
-/* g++ compile command.
-	g++ main.cpp vote.cpp election.cpp -o Alternative_Vote_System
-*/
-
 int main() {
 	election elec;
 	fstream data ("votes.txt");
@@ -41,7 +37,7 @@ int main() {
 		const pair<candidate, int> winner = results[0];
 
 		if (winner.second >= vote_majority) {
-			cout << "Candidate " << winner.first << " is selected." << '\n';
+			cout << "Candidate " << winner.first << " is selected.\n";
 			cin.get();
 			return 0;
 		}

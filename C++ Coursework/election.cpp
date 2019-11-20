@@ -34,14 +34,19 @@ void election::eliminate(candidate c)
 
 vector<pair<candidate, int>> election::ranked_candidates() const
 {
+	//Hash map.
 	map <candidate, int> myMap;
 
+	//Collect and rank candidates based on votes into a hash map (hash map is sorted).
 	for (auto p = vote_collection.cbegin(); p != vote_collection.cend(); ++p) {
 		auto ret = myMap.emplace(p->first_preference(), 0);
 		ret.first->second++;
 	}
+
+	//Convert hash map to vector.
 	vector<pair<candidate, int>> rankedCandidates(myMap.begin(), myMap.end());
 	
+	//Invert ordering.
 	sort(rankedCandidates.begin(), rankedCandidates.end(), [](const pair<candidate, int> &x, const pair<candidate, int> &y) {
 		return x.second > y.second;
 		});
