@@ -1,7 +1,6 @@
 #include "election.h"
 #include <iostream>
 #include <fstream>
-#include <string>
 using namespace std;
 
 int main() {
@@ -36,7 +35,7 @@ int main() {
 
 		const pair<candidate, int> winner = results[0];
 
-		if (winner.second >= vote_majority) {
+		if (winner.second > vote_majority) {
 			cout << "Candidate " << winner.first << " is selected.\n";
 			cin.get();
 			return 0;

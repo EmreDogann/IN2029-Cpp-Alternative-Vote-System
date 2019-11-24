@@ -1,5 +1,4 @@
 #include "election.h"
-#include <iostream>
 
 using namespace std;
 
@@ -39,8 +38,10 @@ vector<pair<candidate, int>> election::ranked_candidates() const
 
 	//Collect and rank candidates based on votes into a hash map (hash map is sorted).
 	for (auto p = vote_collection.cbegin(); p != vote_collection.cend(); ++p) {
-		auto ret = myMap.emplace(p->first_preference(), 0);
-		ret.first->second++;
+		if (!p->spent()) {
+			auto ret = myMap.emplace(p->first_preference(), 0);
+			ret.first->second++;
+		}
 	}
 
 	//Convert hash map to vector.

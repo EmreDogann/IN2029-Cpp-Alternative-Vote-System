@@ -2,7 +2,6 @@
 #define ELECTION_H
 
 #include <istream>
-#include <vector>
 #include <sstream>
 #include <map>
 #include "vote.h"
